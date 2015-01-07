@@ -2,7 +2,7 @@
 .. _coding-standard:
 
 ******************************
-globalegrow WEB组 PHP 编码标准
+globalegrow WEB组 PHP 编码规范
 ******************************
 
 .. _coding-standard.overview:
@@ -20,11 +20,11 @@ globalegrow WEB组 PHP 编码标准
 值得注意的是它要求切实努力来全面 详细说明编码标准。globalegrow WEB组编码标准的指南 实践上很好地工作于主流开源项目项目。
 注：有时候开发者认为在最详细的设计级别上标准的建立比标准所建议的更重要。你可以联系相关负责人或在团队中提出修改建议且德到团队一致认同后实施。
 
-globalegrow WEB组 编码标准的话题包括：
+globalegrow WEB组 编码规范大概包括以下方面：
 
 
 
-   - PHP File 文件格式
+   - PHP文件格式
 
    - 命名约定
 
