@@ -103,7 +103,7 @@ PHP File 文件格式
 “Core/”，所有框架的类在其下按等级存放。
 
 类名只允许有字母数字字符，在大部分情况下不鼓励使用数字。下划线只允许做路径分隔符；例如
-Core/Db/Table.php 文件里对应的类名称是 Zend_Db_Table。
+Core/Db/Table.php 文件里对应的类名称是 Core_Db_Table 或 Core\Db\Table(如果使用命名空间)。
 
 如果类名包含多个单词，每个单词的第一个字母必须大写，连续的大写是不允许的，例如
 “Core_PDF” 是不允许的，而 "Core_Pdf" 是可接受的。
@@ -120,9 +120,8 @@ Core/Db/Table.php 文件里对应的类名称是 Zend_Db_Table。
 
 对于其它文件，只有字母数字字符、下划线和短横线（"-"）可用，空格是绝对不允许的。
 
-包含任何 PHP 代码的任何文件应当以 ".php"
-扩展名结尾，众所周知的视图脚本除外。下面这些例子给出 Zend Framework
-类可接受的文件名：
+扩展名结尾，众所周知的视图脚本除外，包含任何 PHP 代码的任何文件应当以 ".php"
+下面这些例子给出框架类可接受的文件名：
 
    .. code-block:: php
       :linenos:
@@ -282,7 +281,7 @@ PHP 代码总是用完整的标准的 PHP 标签定界：
    .. code-block:: php
       :linenos:
 
-      $company = 'Zend' . ' ' . 'Technologies';
+      $company = 'Core' . ' ' . 'Technologies';
 
 
 
@@ -318,7 +317,7 @@ whitespace 来填补，例如 "." 和 "=" 对齐：
    .. code-block:: php
       :linenos:
 
-      $sampleArray = array(1, 2, 3, 'Zend', 'Studio');
+      $sampleArray = array(1, 2, 3, 'Core', 'Studio');
 
 
 
@@ -327,7 +326,7 @@ whitespace 来填补，例如 "." 和 "=" 对齐：
    .. code-block:: php
       :linenos:
 
-      $sampleArray = array(1, 2, 3, 'Zend', 'Studio',
+      $sampleArray = array(1, 2, 3, 'Core', 'Studio',
                            $a, $b, $c,
                            56.44, $d, 500);
 
@@ -517,7 +516,7 @@ whitespace 来填补，例如 "." 和 "=" 对齐：
 
       threeArguments(array(1, 2, 3), 2, 3);
 
-      threeArguments(array(1, 2, 3, 'Zend', 'Studio',
+      threeArguments(array(1, 2, 3, 'Core', 'Studio',
                            $a, $b, $c,
                            56.44, $d, 500), 2, 3);
 
