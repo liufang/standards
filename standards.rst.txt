@@ -65,6 +65,11 @@ PHP File 文件格式
 
 .. _coding-standard.php-file-formatting.max-line-length:
 
+空行
+^^^^
+
+严谨代码中连续出现多个空行，单个方法函数中代码量较多的时候可以在功能块之间使用空格隔开。
+
 行的最大长度
 ^^^^^^^^^^^^
 
