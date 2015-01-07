@@ -640,7 +640,7 @@ intentionally omitted" 这样的注释来表明 break 是故意忽略的。
 .. _coding-standards.inline-documentation.classes:
 
 类
-^
+^^
 
 每个类必须至少包含这些 phpDocumentor 标签：
 
