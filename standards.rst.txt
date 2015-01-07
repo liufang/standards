@@ -50,7 +50,7 @@ PHP File 文件格式
 .. _coding-standard.php-file-formatting.general:
 
 常规
-^^
+^^^^
 
 对于只包含有 PHP
 代码的文件，结束标志（"?>"）是不允许存在的，PHP自身不需要（"?>"）, 这样做,
@@ -59,23 +59,22 @@ PHP File 文件格式
 .. _coding-standard.php-file-formatting.indentation:
 
 缩进
-^^
+^^^^
 
-缩进由四个空格组成，禁止使用制表符 TAB 。
+缩进由四个空格组成，禁止使用制表符 TAB(有些软件可以设置强制tab转换成空格，请设置成一个tab对应4个空格) 。
 
 .. _coding-standard.php-file-formatting.max-line-length:
 
 行的最大长度
-^^^^^^
+^^^^^^^^^^^^
 
-一行 80 字符以内是比较合适，就是说，ZF
-的开发者应当努力在可能的情况下保持每行代码少于 80
+一行 80 字符以内是比较合适，就是说，项目的开发者应当努力在可能的情况下保持每行代码少于 80
 个字符，在有些情况下，长点也可以, 但最多为 120 个字符。
 
 .. _coding-standard.php-file-formatting.line-termination:
 
 行结束标志
-^^^^^
+^^^^^^^^^^
 
 行结束标志遵循 Unix
 文本文件的约定，行必需以单个换行符（LF）结束。换行符在文件中表示为
@@ -87,35 +86,31 @@ PHP File 文件格式
 .. _coding-standard.naming-conventions:
 
 命名约定
-----
+--------
 
 .. _coding-standard.naming-conventions.classes:
 
 类
-^
+^^
 
-Zend Framework 的类命名总是对应于其所属文件的目录结构的，ZF 标准库的根目录是
-“Zend/”，ZF 特别（extras）库的根目录是 "ZendX/"，所有 Zend Framework
-的类在其下按等级存放。
+项目的类命名总是对应于其所属文件的目录结构的，框架标准库的根目录是
+“Core/”，所有框架的类在其下按等级存放。
 
 类名只允许有字母数字字符，在大部分情况下不鼓励使用数字。下划线只允许做路径分隔符；例如
-Zend/Db/Table.php 文件里对应的类名称是 Zend_Db_Table。
+Core/Db/Table.php 文件里对应的类名称是 Zend_Db_Table。
 
 如果类名包含多个单词，每个单词的第一个字母必须大写，连续的大写是不允许的，例如
-“Zend_PDF” 是不允许的，而 "Zend_Pdf" 是可接受的。
+“Core_PDF” 是不允许的，而 "Core_Pdf" 是可接受的。
 
-这些约定为 Zend Framework
-定义了一个伪命名空间机制。如果对开发者在他们的程序中切实可行，Zend Framework
-将采用 PHP 命名空间特性（如果有的话）。
+这些约定为 框架 定义了一个伪命名空间机制。如果对开发者在他们的程序中切实可行，项目
+将采用 PHP 命名空间特性（如果可行的话）。
 
-参见在标准和特别库中类名作为类名约定的例子。 **重要：** 依靠 ZF
-库展开的代码，但又不是标准或特别库的一部分（例如程序代码或不是 Zend
-发行的库），不要以 "Zend\_" 或 "ZendX\_" 开头。
+任何同业务逻辑挂钩的代码不得放入Core目录。
 
 .. _coding-standard.naming-conventions.filenames:
 
 文件名
-^^^
+^^^^^^
 
 对于其它文件，只有字母数字字符、下划线和短横线（"-"）可用，空格是绝对不允许的。
 
@@ -126,18 +121,18 @@ Zend/Db/Table.php 文件里对应的类名称是 Zend_Db_Table。
    .. code-block:: php
       :linenos:
 
-      Zend/Db.php
+      Core/Db.php
 
-      Zend/Controller/Front.php
+      Core/Controller/Front.php
 
-      Zend/View/Helper/FormRadio.php
+      Core/View/Helper/FormRadio.php
 
 文件名必须遵循上述的对应类名的规则。
 
 .. _coding-standard.naming-conventions.functions-and-methods:
 
 函数和方法
-^^^^^
+^^^^^^^^^^
 
 函数名只包含字母数字字符，下划线是不允许的。数字是允许的但大多数情况下不鼓励。
 
@@ -163,26 +158,15 @@ Zend/Db/Table.php 文件里对应的类名称是 Zend_Db_Table。
 为前缀。在设计模式实现方面，如单态模式（singleton）或工厂模式（factory），
 方法的名字应当包含模式的名字，这样名字更能描述整个行为。
 
-在对象中的方法，声明为 "private" 或 "protected" 的，
-名称的首字符必须是一个单个的下划线，这是唯一的下划线在方法名字中的用法。声明为
-"public" 的从不包含下划线。
-
-全局函数 (如："floating functions")
-允许但大多数情况下不鼓励，建议把这类函数封装到静态类里。
+全局函数允许但大多数情况下不鼓励，建议把这类函数封装到静态类里。
 
 .. _coding-standard.naming-conventions.variables:
 
 变量
-^^
+^^^^
 
 变量只包含数字字母字符，大多数情况下不鼓励使用数字，下划线不接受。
-
-声明为 "private" 或 "protected"
-的实例变量名必须以一个单个下划线开头，这是唯一的下划线在程序中的用法，声明为
-"public" 的不应当以下划线开头。
-
-对函数名（见上面 3.3
-节）一样，变量名总以小写字母开头并遵循“驼峰式”命名约定。
+变量名总以小写字母开头并遵循“驼峰式”命名约定。
 
 我们一般鼓励使用冗长的名字，这样容易理解代码，开发者知道把数据存到哪里。除非在小循环里，不鼓励使用简洁的名字如
 "$i" 和 "$n" 。如果一个循环超过 20
@@ -191,7 +175,7 @@ Zend/Db/Table.php 文件里对应的类名称是 Zend_Db_Table。
 .. _coding-standard.naming-conventions.constants:
 
 常量
-^^
+^^^^
 
 常量包含数字字母字符和下划线，数字允许作为常量名。
 
@@ -205,12 +189,12 @@ Zend/Db/Table.php 文件里对应的类名称是 Zend_Db_Table。
 .. _coding-standard.coding-style:
 
 编码风格
-----
+--------
 
 .. _coding-standard.coding-style.php-code-demarcation:
 
-PHP 代码划分（Demarcation）
-^^^^^^^^^^^^^^^^^^^^^
+PHP 代码划分
+^^^^^^^^^^^^
 
 PHP 代码总是用完整的标准的 PHP 标签定界：
 
@@ -222,20 +206,19 @@ PHP 代码总是用完整的标准的 PHP 标签定界：
       ?>
 
 
-短标签（ ）是不允许的，只包含 PHP 代码的文件，不要结束标签 （参见 :ref:`
-<coding-standard.php-file-formatting.general>`\ ）。
+短标签（ ）是不允许的，只包含 PHP 代码的文件，不要结束标签。
 
 .. _coding-standard.coding-style.strings:
 
 字符串
-^^^
+^^^^^^
 
 .. _coding-standard.coding-style.strings.literals:
 
 字符串文字
-^^^^^
+^^^^^^^^^^
 
-当字符串是文字(不包含变量)，应当用单引号（ apostrophe ）来括起来：
+当字符串是文字(不包含变量)，应当用单引号来括起来：
 
    .. code-block:: php
       :linenos:
@@ -247,9 +230,9 @@ PHP 代码总是用完整的标准的 PHP 标签定界：
 .. _coding-standard.coding-style.strings.literals-containing-apostrophes:
 
 包含单引号（'）的字符串文字
-^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-当文字字符串包含单引号（apostrophe ）就用双引号括起来，特别在 SQL 语句中有用：
+当文字字符串包含单引号就用双引号括起来，例如在 SQL 语句中：
 
    .. code-block:: php
       :linenos:
@@ -261,7 +244,7 @@ PHP 代码总是用完整的标准的 PHP 标签定界：
 .. _coding-standard.coding-style.strings.variable-substitution:
 
 变量替换
-^^^^
+^^^^^^^^
 
 变量替换有下面这些形式：
 
@@ -286,7 +269,7 @@ PHP 代码总是用完整的标准的 PHP 标签定界：
 .. _coding-standard.coding-style.strings.string-concatenation:
 
 字符串连接
-^^^^^
+^^^^^^^^^^
 
 字符串必需用 "." 操作符连接，在它的前后加上空格以提高可读性：
 
@@ -313,12 +296,12 @@ whitespace 来填补，例如 "." 和 "=" 对齐：
 .. _coding-standard.coding-style.arrays:
 
 数组
-^^
+^^^^
 
 .. _coding-standard.coding-style.arrays.numerically-indexed:
 
 数字索引数组
-^^^^^^
+^^^^^^^^^^^^
 
 索引不能为负数
 
@@ -347,7 +330,7 @@ whitespace 来填补，例如 "." 和 "=" 对齐：
 .. _coding-standard.coding-style.arrays.associative:
 
 关联数组
-^^^^
+^^^^^^^^
 
 当用声明关联数组， *array*
 我们鼓励把代码分成多行，在每个连续行的开头用空格填补来对齐键和值：
@@ -363,14 +346,14 @@ whitespace 来填补，例如 "." 和 "=" 对齐：
 .. _coding-standard.coding-style.classes:
 
 类
-^
+^^
 
 .. _coding-standard.coding-style.classes.declaration:
 
 类的声明
-^^^^
+^^^^^^^^
 
-用 Zend Framework 的命名约定来命名类。
+用 框架 的命名约定来命名类。
 
 花括号应当从类名下一行开始(the "one true brace" form)。
 
@@ -401,26 +384,26 @@ whitespace 来填补，例如 "." 和 "=" 对齐：
 .. _coding-standard.coding-style.classes.member-variables:
 
 类成员变量
-^^^^^
+^^^^^^^^^^
 
-必须用Zend Framework的变量名约定来命名类成员变量。
+必须用框架的变量名约定来命名类成员变量。
 
 变量的声明必须在类的顶部，在方法的上方声明。
 
-不允许使用 *var* （因为 ZF 是基于 PHP 5 的 ），要用 *private*\ 、 *protected* 或 *public*\ 。
+不允许使用 *var*，要用 *private*\ 、 *protected* 或 *public*\ 。
 直接访问 public 变量是允许的但不鼓励，最好使用访问器 （set/get）。
 
 .. _coding-standard.coding-style.functions-and-methods:
 
 函数和方法
-^^^^^
+^^^^^^^^^^
 
 .. _coding-standard.coding-style.functions-and-methods.declaration:
 
 函数和方法声明
-^^^^^^^
+^^^^^^^^^^^^^^
 
-必须用Zend Framework的函数名约定来命名函数。
+必须用框架的函数名约定来命名函数。
 
 在类中的函数必须用 *private*\ 、 *protected* 或 *public* 声明它们的可见性。
 
@@ -506,7 +489,7 @@ whitespace 来填补，例如 "." 和 "=" 对齐：
 .. _coding-standard.coding-style.functions-and-methods.usage:
 
 函数和方法的用法
-^^^^^^^^
+^^^^^^^^^^^^^^^^
 
 函数的参数应当用逗号和紧接着的空格分开，下面可接受的调用的例子中的函数带有三个参数：
 
@@ -537,7 +520,7 @@ whitespace 来填补，例如 "." 和 "=" 对齐：
 .. _coding-standard.coding-style.control-statements:
 
 控制语句
-^^^^
+^^^^^^^^
 
 .. _coding-standard.coding-style.control-statements.if-else-elseif:
 
@@ -575,13 +558,13 @@ if/Else/Elseif
 
       if ($a != 2) {
           $a = 2;
-      } elseif ($a == 3) {
+      } else if ($a == 3) {
           $a = 4;
       } else {
           $a = 7;
       }
 
-在有些情况下， PHP 允许这些语句不用花括号，但在(ZF) 代码标准里，它们（"if"、
+在有些情况下， PHP 允许这些语句不用花括号，但在此处代码标准里，它们（"if"、
 "elseif" 或 "else" 语句）必须使用花括号。
 
 "elseif" 是允许的但强烈不鼓励，我们支持 "else if" 组合。
@@ -618,12 +601,12 @@ intentionally omitted" 这样的注释来表明 break 是故意忽略的。
 .. _coding-standards.inline-documentation:
 
 注释文档
-^^^^
+^^^^^^^^
 
 .. _coding-standards.inline-documentation.documentation-format:
 
 格式
-^^
+^^^^
 
 所有文档块 ("docblocks") 必须和 phpDocumentor 格式兼容，phpDocumentor
 格式的描述超出了本文档的范围，关于它的详情，参考： `http://phpdoc.org/`_\ 。
@@ -634,7 +617,7 @@ intentionally omitted" 这样的注释来表明 break 是故意忽略的。
 .. _coding-standards.inline-documentation.files:
 
 文件
-^^
+^^^^
 
 每个包含 PHP 代码的文件必须至少在文件顶部的 docblock 包含这些 phpDocumentor 标签：
 
@@ -648,10 +631,8 @@ intentionally omitted" 这样的注释来表明 break 是故意忽略的。
        *
        * LICENSE: 一些 license 信息
        *
-       * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
-       * @license    http://framework.zend.com/license/3_0.txt   BSD License
-       * @link       http://framework.zend.com/package/PackageName
-       * @since      File available since Release 1.5.0
+       * @copyright  Copyright (c) 2007-2015 globalegrow ZH Inc. (http://www.globalegrow.com)
+       * @license    xxx
       */
 
 
@@ -670,13 +651,6 @@ intentionally omitted" 这样的注释来表明 break 是故意忽略的。
        * 类的简述
        *
        * 类的详细描述 （如果有的话）... ...
-       *
-       * @copyright  Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
-       * @license    http://framework.zend.com/license/   BSD License
-       * @version    Release: @package_version@
-       * @link       http://framework.zend.com/package/PackageName
-       * @since      Class available since Release 1.5.0
-       * @deprecated Class deprecated in Release 2.0.0
        */
 
 
@@ -684,7 +658,7 @@ intentionally omitted" 这样的注释来表明 break 是故意忽略的。
 .. _coding-standards.inline-documentation.functions:
 
 函数
-^^
+^^^^
 
 每个函数，包括对象方法，必须有最少包含下列内容的文档块（docblock）：
 
@@ -695,6 +669,8 @@ intentionally omitted" 这样的注释来表明 break 是故意忽略的。
    - 所有参数
 
    - 所有可能的返回值
+
+   - 可能抛出的异常
 
 
 
@@ -709,7 +685,4 @@ intentionally omitted" 这样的注释来表明 break 是故意忽略的。
 
 
 
-
-
-.. _`license`: http://framework.zend.com/license
 .. _`http://phpdoc.org/`: http://phpdoc.org/
