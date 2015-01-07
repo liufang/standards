@@ -44,7 +44,7 @@ bug 和容易维护。
 
 .. _coding-standard.php-file-formatting:
 
-PHP File 文件格式
+PHP 文件格式
 -------------
 
 .. _coding-standard.php-file-formatting.general:
